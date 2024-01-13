@@ -31,4 +31,14 @@ export class Patients {
             console.log('Erro ao pegar paciente por telefone', error);  
         }
     }
+
+    static async getAllPatients() {
+        try {
+            const query = `SELECT * FROM patients`
+            const result = await pool.query(query);
+            return result.rows;
+        } catch (error) {
+            console.log('Erro ao pegar todos pacients', error);
+        }
+    }
 }

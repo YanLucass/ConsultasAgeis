@@ -30,4 +30,14 @@ export class PatientsController {
             console.log('Erro ao criar paciente', error);
         }
     }
+
+
+    static async getAllPatients(req, res) {
+        try {
+            const patients = await Patients.getAllPatients();
+            return res.json({message: "Pacientes cadastrados:", patients});
+        } catch (error) {
+            console.log('Erro ao pegar todos os pacientes', error);
+        }
+    }
 }
