@@ -8,10 +8,9 @@ export class PatientsController {
             return res.status(422).json({message: "O paciente precisa ter um nome!"});
         }
 
-        if(!phone || phone.length > 12) {
+        if(!phone || !/^\d+$/.test(phone) || phone.length !==11) {
             return res.status(422).json({message: "O paciente precisa ter um telefone! válido"});
         }
-
         const patientData = {
             name,
             phone
