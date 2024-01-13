@@ -14,6 +14,7 @@ import Home from './components/pages/Home';
 import PatientsRegister from './components/pages/PatientsRegister';
 import NavBar from './components/layout/NavBar';
 import ShowPatients from './components/pages/ShowPatients';
+import MakeAppointment from './components/pages/MakeAppointment';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path = "/" element={<Home/>} />
             <Route path = "/patients/register" element={<PatientsRegister />} />
             <Route path = "/showPatients" element={<ShowPatients />} />
+            <Route path = "/make/appointment/:id" element={<MakeAppointment />} />
         </Routes>
       </Container>
     </BrowserRouter>

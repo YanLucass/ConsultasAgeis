@@ -20,7 +20,14 @@ pool.connect((error, client) => {
                 id SERIAL PRIMARY KEY,
                 name VARCHAR(50) NOT NULL,
                 phone VARCHAR(12) UNIQUE NOT NULL
-            )
+            );
+
+            CREATE TABLE IF NOT EXISTS scheduling (
+                id SERIAL PRIMARY KEY,
+                date DATE NOT NULL,
+                hour TIME NOT NULL,
+                description TEXT NOT NULL
+            );
         `
 
         client.query(createTablesQuery, (error, result) => {

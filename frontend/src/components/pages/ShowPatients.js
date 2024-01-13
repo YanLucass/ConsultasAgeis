@@ -7,6 +7,7 @@ function ShowPatients() {
 
     const [patients, setPatients] = useState([]);
 
+    //get all patients from route patients/all.
     useEffect(() => {
         async function fetchPatients() {
             const response = await api.get('/patients/all');
