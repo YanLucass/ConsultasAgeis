@@ -6,6 +6,7 @@ dotenv.config();
 
 //import routes
 import patientsRoutes from '../routes/patientsRoutes';
+import schedulingRoutes from '../routes/schedulingRoutes';
 
 const port = 5000;
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.json());
 
 //define routes
 app.use('/patients', patientsRoutes);
+app.use('/scheduling', schedulingRoutes);
 
 
 app.listen(5000, () => {

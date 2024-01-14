@@ -22,11 +22,12 @@ pool.connect((error, client) => {
                 phone VARCHAR(12) UNIQUE NOT NULL
             );
 
-            CREATE TABLE IF NOT EXISTS scheduling (
+            CREATE TABLE IF NOT EXISTS schedules (
                 id SERIAL PRIMARY KEY,
                 date DATE NOT NULL,
                 hour TIME NOT NULL,
-                description TEXT NOT NULL
+                description TEXT NOT NULL,
+                patient_id smallint REFERENCES patients(id)
             );
         `
 
