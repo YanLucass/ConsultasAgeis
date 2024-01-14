@@ -39,7 +39,7 @@ export class Scheduling {
             const query = `SELECT schedules.*, patients.name AS patient_name, patients.phone AS patient_phone
             FROM schedules 
             JOIN patients ON schedules.patient_id = patients.id 
-            order by schedules.date DESC
+            order by schedules.date DESC, schedules.hour DESC
             `
             const result = await pool.query(query);
             return result.rows;
@@ -59,6 +59,7 @@ export class Scheduling {
         }
     }
 
+    //pegar consulta por id
     static async getScheduleById(id) {
         try {
             const query = `SELECT * FROM schedules WHERE id = $1 `
@@ -69,4 +70,7 @@ export class Scheduling {
             console.log('Erro ao pegar consulta por id', error);
         }
     }
+
 }
+
+

@@ -86,4 +86,6 @@ export class ScheduleController {
             console.log('Erro ao cancelar consulta', error);
         }
     }
+
+
 }

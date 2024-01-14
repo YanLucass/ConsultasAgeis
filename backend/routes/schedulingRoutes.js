@@ -7,4 +7,5 @@ router.post('/create/:id', ScheduleController.create);
 router.get('/getAll', ScheduleController.getAll);
 router.delete('/cancel/:id', ScheduleController.cancel);
 
+
 export default router;

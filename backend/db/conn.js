@@ -1,25 +1,24 @@
-import { Pool} from 'pg';
-
+import { Pool } from 'pg';
 import dotenv from 'dotenv';
 dotenv.config();
 
+// A URL de conexão do banco de dados PostgreSQL
+const dbURL = process.env.DATABASE_URL;
+
 const pool = new Pool({
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    host: process.env.HOST,
-    database: process.env.DATABASE,
+    connectionString: dbURL,
 });
 
 pool.connect((error, client) => {
-    if(error) {
-        console.error("Erro ao se conectar com o postgreSQL", error.message);
-    }
-    else {
+    if (error) {
+        console.error("Erro ao se conectar com o PostgreSQL", error.message);
+    } else {
         const createTablesQuery = `
             CREATE TABLE IF NOT EXISTS patients(
                 id SERIAL PRIMARY KEY,
                 name VARCHAR(50) NOT NULL,
-                phone VARCHAR(12) UNIQUE NOT NULL
+                phone VARCHAR(12) UNIQUE NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
 
             CREATE TABLE IF NOT EXISTS schedules (
@@ -27,18 +26,17 @@ pool.connect((error, client) => {
                 date DATE NOT NULL,
                 hour TIME NOT NULL,
                 description TEXT NOT NULL,
-                patient_id smallint REFERENCES patients(id)
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                patient_id smallint REFERENCES patients(id) ON DELETE CASCADE
             );
-        `
+        `;
 
         client.query(createTablesQuery, (error, result) => {
             error ? console.error('Erro ao criar tabelas', error) : console.log('Tabelas criadas com sucesso');
-         })
+        });
 
-         client.release();
+        client.release();
     }
-   
-})
-
+});
 
 export default pool;

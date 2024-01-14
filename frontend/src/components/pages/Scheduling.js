@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../../utils/api";
-import styles from './ShowPatients.module.css'
+import styles from './Scheduling.module.css'
 import {format} from 'date-fns'
 import useFlashMessage from "../../hooks/useFlashMessage";
 

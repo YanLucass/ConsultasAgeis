@@ -34,9 +34,7 @@ function PatientsRegister() {
             msgType = 'error';
         }
 
-        setFlashMessage(msgText, msgType);
-    
-        
+        setFlashMessage(msgText, msgType); 
     }
 
     function submit(e) {

@@ -16,6 +16,7 @@ function NavBar() {
             <Link to="/patients/register">Cadastrar paciente</Link>
           </li>
           <li><Link to = '/showPatients'>Marcar consulta</Link></li>
+          <li><Link to = '/scheduling'>Cancelar consulta</Link></li>
         </ul>
     </nav>
     )

@@ -34,7 +34,7 @@ export class Patients {
 
     static async getAllPatients() {
         try {
-            const query = `SELECT * FROM patients`
+            const query = `SELECT * FROM patients order by created_at DESC`
             const result = await pool.query(query);
             return result.rows;
         } catch (error) {
