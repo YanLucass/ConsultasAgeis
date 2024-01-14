@@ -59,7 +59,7 @@ function PatientsRegister() {
                 text="Telefone"
                 type="tel"
                 name="phone"
-                placeholder="Digite o telefone do paciente"
+                placeholder="ex: 81994386323"
                 handleOnChange={onChange}
             />
 

@@ -18,22 +18,24 @@ function ShowPatients() {
     }, []);
 
     return (
-
         <div className={styles.central}>
-        <div>   
-            <h2>Pacientes cadastrados:</h2>
-            <p>Clique para marcar consulta</p>
-        </div>
-
-        {/* show all patients registed */}
-        {patients.map((patient, index) => (
-            <div className={styles.patient} key={index}> 
-                <Link to={`/make/appointment/${patient.id}`}>
-                    {patient.id}<span>{patient.name}</span>
-                </Link>
+            <div>   
+                <h2>Pacientes cadastrados:</h2>
+                <p>Clique para marcar consulta</p>
             </div>
-        ))};
-        
+
+            {/* show all patients registerd */}
+            {patients.map((patient, index) => (
+                <div className={styles.patient} key={index}> 
+                    <Link to={`/make/appointment/${patient.id}`}>
+                        <div className={styles.patientInfo}>
+                            <span><strong>ID:</strong> {patient.id}</span>
+                            <span><strong>Nome:</strong> {patient.name}</span>
+                            <span><strong>Telefone:</strong> {patient.phone}</span>
+                        </div>
+                    </Link>
+                </div>
+            ))}
         </div>   
     )
 }

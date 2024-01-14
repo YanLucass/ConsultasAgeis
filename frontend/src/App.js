@@ -15,6 +15,7 @@ import PatientsRegister from './components/pages/PatientsRegister';
 import NavBar from './components/layout/NavBar';
 import ShowPatients from './components/pages/ShowPatients';
 import MakeAppointment from './components/pages/MakeAppointment';
+import Scheduling from './components/pages/Scheduling';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path = "/patients/register" element={<PatientsRegister />} />
             <Route path = "/showPatients" element={<ShowPatients />} />
             <Route path = "/make/appointment/:id" element={<MakeAppointment />} />
+            <Route path = "/scheduling" element={<Scheduling/>} />
         </Routes>
       </Container>
     </BrowserRouter>
